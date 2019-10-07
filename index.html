@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<p>Start <input id="date_timepicker_start" type="text" value="">  End <input id="date_timepicker_end" type="text" value=""></p>
+<link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css">
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="jquery.datetimepicker.full.min.js"></script>
+  <script>
+$(function(){
+ $('#date_timepicker_start').datetimepicker({
+  format:'Y-m-d',
+  onShow:function( ct ){
+   this.setOptions({
+    maxDate:$('#date_timepicker_end').val()?$('#date_timepicker_end').val():false
+   })
+  },
+  timepicker:false
+ });
+ $('#date_timepicker_end').datetimepicker({
+  format:'Y-m-d',
+  onShow:function( ct ){
+   this.setOptions({
+    minDate:$('#date_timepicker_start').val()?$('#date_timepicker_start').val():false
+   })
+  },
+  timepicker:false
+ });
+});
+  </script>
+</body>
+</html>
